@@ -1,5 +1,3 @@
-#include <PCA9685.h>
-
 // Basic demo for accelerometer readings from Adafruit MPU6050
 
 #include <Adafruit_MPU6050.h>
@@ -7,28 +5,12 @@
 #include <Wire.h>
 
 Adafruit_MPU6050 mpu;
-PCA9685 pwmController;
-
-
 
 void setup(void) {
-  Serial.begin(9600);
-
-  //wait until serial is active cycle 
+  Serial.begin(115200);
   while (!Serial) {
     delay(10); // will pause Zero, Leonardo, etc until serial console opens
   }
-
-  pwmController.resetDevices();
-  
-  pwmController.init();
-
-  pwmController.setPWMFrequency(100);
-
-  //Setting the pwm on pin zero to the value of 128 shifted left 4 digits binarily. 
-  pwmController.setChannelPWM(0, 128 << 4);
-
-
 
   // Try to initialize!
   if (!mpu.begin()) {
@@ -52,28 +34,15 @@ void loop() {
   mpu.getEvent(&a, &g, &temp);
 
   /* Print out the values */
-  // Prints out the acceleration within the x axis
   Serial.print("AccelX:");
   Serial.print(a.acceleration.x);
-
-	//Prints a comma separator
   Serial.print(",");
-
-	//Prints the acceleration within the y axis
   Serial.print("AccelY:");
   Serial.print(a.acceleration.y);
-
-	//Prints a comma separator
   Serial.print(",");
-
-	//Prints the aceleration within the z axis
   Serial.print("AccelZ:");
   Serial.print(a.acceleration.z);
-
-  	//Prints a comma separator
   Serial.print(", ");
-
-  	//Gyroscope reading on 
   Serial.print("GyroX:");
   Serial.print(g.gyro.x);
   Serial.print(",");
