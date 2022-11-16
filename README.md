@@ -51,7 +51,7 @@ Because each electrically capable hardware part must be physically addressed by 
 ## Software libraries 
 
 [Accelerometer and Gyro Library](https://github.com/adafruit/Adafruit_MPU6050)
-[Servo Controller Library]()
+[Servo Controller Library](https://github.com/NachtRaveVL/PCA9685-Arduino)
 # Conclusion 
 ## Conceptual ideas within this repository 
 
