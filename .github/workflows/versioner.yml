@@ -15,4 +15,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Actions Tagger
+        uses: Actions-R-Us/actions-tagger@v2.0.2
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
