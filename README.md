@@ -4,7 +4,7 @@ This is teh opensource code for my mini autonomous bus project.
 Github Actions Profile: 
 
 # Context 
-This is the arduino source code for an open source mini scale autonomous bus which is part of a larger initiative to autonomize the city of Ames. While the whole of the project surrounds the idea of autonomizing vehicles, this code acts as a control interface for the raspberry pi allowing for more computation regarding "decision making" to be done  on the raspberry pi. If you want ot learn more you can do that here. 
+This is the arduino source code for an open source mini scale autonomous bus which is part of a larger initiative to autonomize the city of Ames. While the whole of the project surrounds the idea of autonomizing vehicles, this code acts as a control interface for the raspberry pi allowing for more computation regarding "decision making" to be done  on the raspberry pi. 
 ## This repo is part of a larger initiative and project found [here](https://github.com/conneroisu/OhneDriver-RPI).  
 > While this repo is part of a larger project it is also intended for a general open source implementation of an serial interface intended to be interacted with through a raspberry pi usb to serial, but will work with any device which can transmitt a serial signal to an arduino; though, this might require some tweaking of values within this implementation. If you want to learn more about customization, you can learn that here.
 
