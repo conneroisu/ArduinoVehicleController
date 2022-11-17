@@ -1,2 +1,0 @@
-- name: main
-  uses: arduino/compile-sketches@v1.0.1
