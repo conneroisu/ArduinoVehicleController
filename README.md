@@ -1,4 +1,5 @@
 # ArduinoVehicleController
+[![Create Release](https://github.com/conneroisu/ArduinoVehicleController/actions/workflows/versioner.yml/badge.svg?branch=main&event=release)](https://github.com/conneroisu/ArduinoVehicleController/actions/workflows/versioner.yml)
 This is teh opensource code for my mini autonomous bus project.
 Github Actions Profile: 
 
