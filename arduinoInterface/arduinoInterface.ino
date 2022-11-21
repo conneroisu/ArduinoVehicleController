@@ -52,8 +52,9 @@ void setup(void) {
 }//void setup 
 
 void loop() {
-	// if there is a string message in the serial buffer
-	
+	// Read a string from the serial monitor
+	String inputString = Serial.readStringUntil('\n');
+
 
 	/* Get new sensor events with the readings */
 	sensors_event_t a, g, temp;
@@ -69,8 +70,10 @@ void loop() {
 	heading2 = heading2 * 180 / M_PI;
 
 	//Print the heading values to the serial monitor
+	//print the heading value calulated from gyro readings
 	Serial.print("Heading: ");
 	Serial.print(heading);
+	//print the heading values alulated from the accelerometer readings
 	Serial.print(" Heading2: ");
 	Serial.println(heading2);
 
