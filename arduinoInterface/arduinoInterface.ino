@@ -41,60 +41,38 @@ void setup(void) {
 			//delay 10 ms
 			delay(10);
 	}}
-	// Sets teh accelerometer range for the mpu 6050 sensor
+	// Sets the accelerometer range for the mpu 6050 sensor
 	mpu.setAccelerometerRange(MPU6050_RANGE_16_G);
 	// sets the gyroscope range for the mpu 6050 sensor 
 	mpu.setGyroRange(MPU6050_RANGE_250_DEG);
 	// sets the filter bandwidth for the mpu 6050 sensor
-	mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
-	Serial.println("");
+	mpu.setFilterBandwidth(MPU6050_BAND_21_HZ); Serial.println("");
 	//Delay 100 ms
 	delay(100);
 }//void setup 
 
 void loop() {
+	// if there is a string message in the serial buffer
+	
 
 	/* Get new sensor events with the readings */
 	sensors_event_t a, g, temp;
 	mpu.getEvent(&a, &g, &temp);
 
-	/* Print out the values */
-	// Prints out the acceleration along the x axis
-	Serial.print("AccelX:");
-	Serial.print(a.acceleration.x);
+	//Create heading values from the gyroscope readings
+	float heading = atan2(g.gyro.y, g.gyro.x);
+	//Convert the heading to degrees
+	heading = heading * 180 / M_PI;
+	//Create geading values from the accelerometer readings
+	float heading2 = atan2(a.acceleration.y, a.acceleration.x);
+	//Convert the heading to degrees
+	heading2 = heading2 * 180 / M_PI;
 
-	//Prints a comma separator
-	Serial.print(",");
+	//Print the heading values to the serial monitor
+	Serial.print("Heading: ");
+	Serial.print(heading);
+	Serial.print(" Heading2: ");
+	Serial.println(heading2);
 
-	//Prints the acceleration along the y axis
-	Serial.print("AccelY:");
-	Serial.print(a.acceleration.y);
 
-	//Prints a comma separator
-	Serial.print(",");
-
-	//Prints the aceleration along the z axis.
-	Serial.print("AccelZ:");
-	Serial.print(a.acceleration.z);
-
-	//Prints a comma separator
-	Serial.print(", ");
-
-	//Gyroscope reading along the x axis
-	Serial.print("GyroX:");
-	Serial.print(g.gyro.x);
-	Serial.print(",");
-
-	//Gyroscope reading along the y axis
-	Serial.print("GyroY:");
-	Serial.print(g.gyro.y);
-	Serial.print(",");
-
-	//Gyroscope reading along the z axis
-	Serial.print("GyroZ:");
-	Serial.print(g.gyro.z);
-	Serial.println("");
-
-	//delay 10 ms
-	delay(10);
 }
