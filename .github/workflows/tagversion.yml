@@ -1,0 +1,2 @@
+- name: tag-version
+  uses: julesabr/tag-version@v1.5
