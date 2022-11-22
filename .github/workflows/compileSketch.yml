@@ -1,0 +1,17 @@
+on: 
+  - push
+  - pull_request
+jobs:
+  compile-sketch:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - uses: arduino/compile-sketches@v1
+        with: 
+          sketch-paths: |
+            - .\ArduinoVehicleController
+          libraries: |
+            # No 
+            - name: Arduino_Adafruit_MPU6050
+            - name: Arduino_Adafruit_Sensor
+            - name: Arduino_PCA9685
