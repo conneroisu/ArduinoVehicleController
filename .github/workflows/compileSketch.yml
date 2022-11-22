@@ -9,10 +9,9 @@ jobs:
       - uses: arduino/compile-sketches@v1
         with: 
           sketch-paths: |
-            - ./
+            - ./ArduioVehicleController/
           libraries: |
-            # No 
             - name: Adafruit MPU6050
             - name: Adafruit Unified Sensor
-            - name: PCA9685_16-Channel_PWM_Driver_Module_Library
+            - name: PCA9685 16 Channel PWM Driver Module Library
 
