@@ -12,6 +12,6 @@ jobs:
             - .\ArduinoVehicleController
           libraries: |
             # No 
-            - name: Arduino_Adafruit_MPU6050
-            - name: Arduino_Adafruit_Sensor
-            - name: Arduino_PCA9685
+            - name: Adafruit_MPU6050
+            - name: Adafruit_Sensor
+            - name: PCA9685
