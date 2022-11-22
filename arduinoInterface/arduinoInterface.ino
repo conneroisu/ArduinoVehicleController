@@ -54,28 +54,50 @@ void setup(void) {
 void loop() {
 	// Read a string from the serial monitor
 	String inputString = Serial.readStringUntil('\n');
+	//create a boolean for representing if steer is in the String
+	bool steer = inputString.indexOf("steer") >= 0;
+	//create a boolean for representing if throttle is in the String
+	bool throttle = inputString.indexOf("throttle") >= 0;
+	//create a boolean for representing if heading is in the String
+	bool heading = inputString.indexOf("heading") >= 0;
 
+	if(steer){
+		//parse for the integer following the word steer
+		int steerValue = inputString.substring(inputString.indexOf("steer") + 5).toInt();
+		//set the steer value to the pwm controller
+		pwmController.setChannelPWM(0, steerValue << 4);
+	}
+	if(throttle){
+		//parse for the integer following the word throttle
+		int throttleValue = inputString.substring(inputString.indexOf("throttle") + 8).toInt();
+		//set the throttle value to the pwm controller
+		pwmController.setChannelPWM(0, throttleValue << 4);
+	}
+	//if heading is in the string
+	if(heading){
+		//get sensor events with the readings
+		sensors_event_t a, g, temp;
+		mpu.getEvent(&a, &g, &temp);
+
+		//Create heading values from the gyroscope readings
+		float heading = atan2(g.gyro.y, g.gyro.x);
+		//Convert the heading to degrees
+		heading = heading * 180 / M_PI;
+		//Create geading values from the accelerometer readings
+		float heading2 = atan2(a.acceleration.y, a.acceleration.x);
+		//Convert the heading to degrees
+		heading2 = heading2 * 180 / M_PI;
+
+		//Print the heading values to the serial monitor
+		//print the heading value calulated from gyro readings
+		Serial.print("Heading: ");
+		Serial.print(heading);
+		//print the heading values alulated from the accelerometer readings
+		Serial.print(" Heading2: ");
+		Serial.println(heading2);
+	}
 
 	/* Get new sensor events with the readings */
-	sensors_event_t a, g, temp;
-	mpu.getEvent(&a, &g, &temp);
-
-	//Create heading values from the gyroscope readings
-	float heading = atan2(g.gyro.y, g.gyro.x);
-	//Convert the heading to degrees
-	heading = heading * 180 / M_PI;
-	//Create geading values from the accelerometer readings
-	float heading2 = atan2(a.acceleration.y, a.acceleration.x);
-	//Convert the heading to degrees
-	heading2 = heading2 * 180 / M_PI;
-
-	//Print the heading values to the serial monitor
-	//print the heading value calulated from gyro readings
-	Serial.print("Heading: ");
-	Serial.print(heading);
-	//print the heading values alulated from the accelerometer readings
-	Serial.print(" Heading2: ");
-	Serial.println(heading2);
 
 
 }
