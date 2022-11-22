@@ -13,5 +13,5 @@ jobs:
           libraries: |
             # No 
             - name: Adafruit MPU6050
-            - name: Adafruit Sensor
+            - name: Adafruit Unified Sensor
             - name: PCA9685
