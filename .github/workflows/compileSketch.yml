@@ -14,4 +14,5 @@ jobs:
             # No 
             - name: Adafruit MPU6050
             - name: Adafruit Unified Sensor
-            - name: PCA9685
+            - name: PCA9685 16-Channel PWM Driver Module Library
+
