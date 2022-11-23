@@ -29,7 +29,7 @@ void setup(void) {
 	pwmController.init();
 
 	//Sets the PWM Contoller Frequency
-	pwmController.set(100);
+	pwmController.setPWMFrequency(100);
 
 	//Setting the pwm on pin zero to the value of 128 shifted left 4 digits binarily. 
 	pwmController.setChannelPWM(0, 128 << 4);
