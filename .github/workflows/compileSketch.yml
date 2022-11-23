@@ -1,3 +1,4 @@
+name: Sketch Compilation
 on: 
   - push
   - pull_request
