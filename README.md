@@ -30,7 +30,7 @@ I think that. my dream employer, Texas Instruments said it best when they descri
 > "The $I^{2}C$ bus is a very popular and powerful bus used for communication between a master (or multiple masters) and a single or multiple slave devices... many different peripherals may share a bus which is connected to a processor through only 2 wires, which is one of the largest benefits that the $I^{2}C$ bus can give when compared to other interfaces."
 
 ## Hardware
-- Wiring diagram goes here
+# Wiring Diagram
 ![image](https://user-images.githubusercontent.com/88785126/203611756-17ed7575-89bb-40d6-8eaf-db1b79a4eb3f.png)
 
 
