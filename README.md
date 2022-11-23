@@ -1,4 +1,5 @@
-Github Actions Profile: 
+Github Actions Compile Badge: 
+[![.github/workflows/compileSketch.yml](https://github.com/conneroisu/ArduinoVehicleController/actions/workflows/compileSketch.yml/badge.svg?event=push)](https://github.com/conneroisu/ArduinoVehicleController/actions/workflows/compileSketch.yml)
 
 # Context 
 This is the arduino source code for an open source mini scale autonomous bus which is part of a larger initiative to autonomize the city of Ames. While the whole of the project surrounds the idea of autonomizing vehicles, this code acts as a control interface for the raspberry pi allowing for more computation regarding "decision making" to be done  on the raspberry pi. This repository acts as the interface between the $I^{2}C$ and the serial interface present on an arduino for the controll of steering and throttle using pwm while doing some computations needed to transform the sensor readings into an heading value which is sent on the serial connection.
