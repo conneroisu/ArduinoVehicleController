@@ -6,9 +6,7 @@ jobs:
   compile-sketch:
     runs-on: ubuntu-latest
     steps: 
-      - name: Checkout
       - uses: actions/checkout@v2
-      - name: Compile Sketch
       - uses: arduino/compile-sketches@v1
         with: 
           sketch-paths: |
