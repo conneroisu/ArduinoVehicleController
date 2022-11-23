@@ -1,7 +1,5 @@
-Github Actions Compile Badge: 
-[![.github/workflows/compileSketch.yml](https://github.com/conneroisu/ArduinoVehicleController/actions/workflows/compileSketch.yml/badge.svg?event=push)](https://github.com/conneroisu/ArduinoVehicleController/actions/workflows/compileSketch.yml)
 
-# Context 
+# Context [![.github/workflows/compileSketch.yml](https://github.com/conneroisu/ArduinoVehicleController/actions/workflows/compileSketch.yml/badge.svg?event=push)](https://github.com/conneroisu/ArduinoVehicleController/actions/workflows/compileSketch.yml)
 This is the arduino source code for an open source mini scale autonomous bus which is part of a larger initiative to autonomize the city of Ames. While the whole of the project surrounds the idea of autonomizing vehicles, this code acts as a control interface for the raspberry pi allowing for more computation regarding "decision making" to be done  on the raspberry pi. This repository acts as the interface between the $I^{2}C$ and the serial interface present on an arduino for the controll of steering and throttle using pwm while doing some computations needed to transform the sensor readings into an heading value which is sent on the serial connection.
 
 
@@ -33,15 +31,21 @@ I think that. my dream employer, Texas Instruments said it best when they descri
 
 ## Hardware
 - Wiring diagram goes here
-![[OhneDriver Bus Initiative 2022-11-15 12.41.42.excalidraw]]
+![image](https://user-images.githubusercontent.com/88785126/203611756-17ed7575-89bb-40d6-8eaf-db1b79a4eb3f.png)
+
+
 Both interfaces that are intended for use with this code use an $I^{2}C$ communication protocol. A Inter-Integrated circuit protocol otherwise known as $I^{2}C$, an multi-peripheral sensors or circuits to communicate with one or more controller boards, requires two wites to exchange data. Because $I^{2}C$ requires only two wires, this simplifies the physical wiring and designing of the wiring itself. 
 
 ### MPU 6050
 A popular tri-axis accelerometer and gyroscope allowing the full tracking of the sensors position and acceleration. More specifically,  while the gyroscope measures rotational velocity through the use of MEMS and Coriolis Effect, the accelerometer measures the acceleration along the 3 axes.
+
 ![](https://i.imgur.com/qhqgar8.png)
+
 While there are 8 essential nodes present to the interface, this implementation only uses 4: VCC, Ground, **Serial Clock Line(SCL)**, and **Serial Data Line(SDA)**. 
 ### PCA 9685
+
 The PCA 9685 is a servo controller board that allows for the controlling of 16 separate pwm outputs per board(You can chain a sequence of these boards with configured addresses to address more than 16 outputs). The board takes only two pins of input disregarding the voltage and ground wires. Specifically, the two wires are **Serial Clock Line(SCL)**, and **Serial Data Line(SDA)**. 
+
 ![](https://i.imgur.com/vo94msV.png)
 
 
